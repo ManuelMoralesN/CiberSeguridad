@@ -2,18 +2,18 @@
 #include "DES.h"
 
 int main() {
-	//std::bitset<64> plaintext("0001001000110100010101100111100010011010101111001101111011110001");
-	std::bitset<64> key("0001001100110100010101110111100110011011101111001101111111110001");
 
-	std::string phrase = "$Hola DES!";
-	//std::string userKey = "$el_pepe$";
+	
+	std::bitset<64> key("0001001100110100010101110111100110011011101111001101111111110001"); // Llave de 64 bits en binario
+
+	std::string phrase = "$Hola DES!"; // Frase a cifrar, debe ser de longitud múltiplo de 8
 
 	// Asegurar que la frase tenga longitud múltiplo de 8
 	while (phrase.size() % 8 != 0) {
 		phrase += '\0'; // null space
 	}
 
-	std::vector<std::bitset<64>> cipherBlocks;
+	std::vector<std::bitset<64>> cipherBlocks; // Vector para almacenar bloques cifrados
 	std::cout << "Texto original: " << phrase << std::endl;
 	std::cout << "Cifrado en hexadecimal:\n";
 
@@ -37,8 +37,7 @@ int main() {
 	}
 
 	std::cout << "Texto descifrado: " << phrase << std::endl;
-	//auto ciphertext = des.encode(plaintext);
-	//std::cout << "Cifrado: " << ciphertext << std::endl;
+
 
 	return 0;
 }
