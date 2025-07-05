@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Include\AsciiBinary.h" />
     <ClInclude Include="Include\CesarEncryption.h" />
+    <ClInclude Include="Include\CryptoGenerator.h" />
     <ClInclude Include="Include\DES.h" />
     <ClInclude Include="Include\Prerequisites.h" />
     <ClInclude Include="Include\Vigenere.h" />
