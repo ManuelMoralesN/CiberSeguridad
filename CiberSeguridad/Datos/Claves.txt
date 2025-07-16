@@ -1,0 +1,5 @@
+Claves
+Cesar: 3
+Xor: 0912
+Vigenere: Fuga
+DES: 09128734
