@@ -1,5 +1,5 @@
 Claves
 Cesar: 3
-Xor: 0912
+Xor: manE1
 Vigenere: Fuga
 DES: 09128734
