@@ -15,7 +15,7 @@ Este proyecto implementa varios algoritmos de **cifrado y descifrado**:
 ### Software necesario:
 
 - C++17 o superior
-- Un compilador compatible (por ejemplo, g++ o MSVC)
+- Un compilador compatible 
 
 ### Archivos requeridos:
 
@@ -48,4 +48,58 @@ El programa mostrará el siguiente menú interactivo para elegir el algoritmo qu
 10. Descifrar con DES
 0. Salir
 Seleccione una opción:
+```
+## 4. Cifrado y Descifrado con los Algoritmos
+**Cifrado César**
+-Clave: Un número entero (por ejemplo, 3).
+
+-Proceso: Desplaza cada letra del texto según el número de la clave.
+
+Uso:
+
+-Cifrar: Opción 1, ingresa el archivo y la clave.
+
+-Descifrar: Opción 2, ingresa el archivo y la misma clave.
+
+**Cifrado XOR**
+-Clave: Una cadena de texto (por ejemplo, "claveX").
+
+-Proceso: Realiza una operación XOR entre el texto y la clave.
+
+Uso:
+
+-Cifrar: Opción 3, ingresa el archivo y la clave.
+
+-Descifrar: Opción 4, ingresa el archivo y la misma clave.
+
+**Cifrado Vigenère**
+-Clave: Una palabra (solo letras).
+
+-Proceso: Cada letra del texto se cifra con una letra correspondiente de la clave.
+
+Uso:
+
+-Cifrar: Opción 5, ingresa el archivo y la clave.
+
+-Descifrar: Opción 6, ingresa el archivo y la misma clave.
+
+**Cifrado ASCII Binario**
+-Proceso: Convierte el texto en su representación binaria (ASCII).
+
+Uso:
+
+-Cifrar: Opción 7, ingresa el archivo.
+
+-Descifrar: Opción 8, ingresa el archivo cifrado.
+
+**Cifrado DES**
+-Clave: 8 caracteres (64 bits).
+
+-Proceso: Cifra el texto en bloques de 64 bits utilizando DES.
+
+Uso:
+
+-Cifrar: Opción 9, ingresa el archivo y la clave.
+
+-Descifrar: Opción 10, ingresa el archivo cifrado y la misma clave.
 
