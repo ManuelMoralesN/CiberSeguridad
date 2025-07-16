@@ -26,9 +26,9 @@ bool Cesarin::guardarArchivo(const std::string& ruta, const std::string& conteni
 }
 
 std::string Cesarin::rutaCruda(const std::string& nombreArchivo) {
-    return "bin/DatosCrudos/" + nombreArchivo;
+    return "Datos/DatosCrudos/" + nombreArchivo;
 }
 
 std::string Cesarin::rutaCifrada(const std::string& nombreArchivo) {
-    return "bin/DatosCif/" + nombreArchivo;
+    return "Datos/DatosCif/" + nombreArchivo;
 }
