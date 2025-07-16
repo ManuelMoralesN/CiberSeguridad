@@ -1,53 +1,46 @@
 #include "Prerequisites.h"
-#include "CryptoGenerator.h"
+#include "Cifrador.h"
 
 int main() {
-	// 1) Generar una contraseña de 16 caracteres (mayúsculas, minúsculas, dígitos)
-	CryptoGenerator cryptoGen;
-	cryptoGen.generatePassword(16); // Generate a password of length 16
+    int opcion = 0;
 
-	// 2) Generar 16 bytes aleatorios genéricos
-	auto randomBytes = cryptoGen.generateBytes(16);
-	std::cout << "Random Bytes (hex): " << cryptoGen.toHex(randomBytes) << std::endl;
+    do {
+        std::cout << "\n======= MANELIKENCRYPTION =======\n";
+        std::cout << "\n======= MENU =======\n";
+        std::cout << "1. Cifrar con Cesar\n";
+        std::cout << "2. Descifrar con Cesar\n";
+        std::cout << "3. Cifrar con XOR\n";
+        std::cout << "4. Descifrar con XOR\n";
+        std::cout << "5. Cifrar con Vigenere\n";
+        std::cout << "6. Descifrar con Vigenere\n";
+        std::cout << "7. Cifrar con ASCII Binario\n";
+        std::cout << "8. Descifrar con ASCII Binario\n";
+        std::cout << "9. Cifrar con DES\n";
+        std::cout << "10. Descifrar con DES\n";
+        std::cout << "0. Salir\n";
+        std::cout << "Elige lo que quieres hacer: ";
+        std::cin >> opcion;
+        std::cin.ignore();
 
-	// 3) Clave AES de 128 bits
-	auto key128 = cryptoGen.generateKey(128);
-	std::cout << "Key 128-bit (hex): " << cryptoGen.toHex(key128) << std::endl;
+        switch (opcion) {
+        case 1:  Cifrador::cifrarCesar(); break;
+        case 2:  Cifrador::descifrarCesar(); break;
+        case 3:  Cifrador::cifrarXOREncoder(); break;
+        case 4:  Cifrador::descifrarXOR(); break;
+        case 5:  Cifrador::cifrarVigenere(); break;
+        case 6:  Cifrador::descifrarVigenere(); break;
+        case 7:  Cifrador::cifrarAscii(); break;
+        case 8:  Cifrador::descifrarAscii(); break;
+        case 9:  Cifrador::cifrarDES(); break;
+        case 10: Cifrador::descifrarDES(); break;
+        case 0:
+            std::cout << "Saliendo del programa...\n";
+            break;
+        default:
+            std::cout << "Opcion no valida. Intentalo de nuevo.\n";
+        }
 
-	// 4) IV de 128 bits (16 bytes)
-	auto iv = cryptoGen.generateIV(16);
-	std::cout << "IV 128-bit (hex): " << cryptoGen.toHex(iv) << "\n";
+    } while (opcion != 0);
 
-	// 5) Salt de 16 bytes
-	auto salt = cryptoGen.generateSalt(16);
-	std::cout << "Salt (Base64): " << cryptoGen.toBase64(salt) << "\n";
-
-	// 6) Safe release 
-	//cryptoGen.secureWipe(iv);
-	//cryptoGen.secureWipe(salt);
-
-	// 7) from Base64
-	std::string base64String = cryptoGen.toBase64(salt); // Example Base64 string
-	std::cout << "Base64: " << base64String << "\n";
-
-	auto fromBase64 = cryptoGen.fromBase64(base64String);
-	std::cout << "From Base64: " << cryptoGen.toHex(fromBase64) << "\n";
-
-	// 8) Estimated Entropy
-	std::string pwd = base64String;
-	auto entropy = cryptoGen.estimateEntropy(pwd);
-	std::cout << "Password 1: " << cryptoGen.generatePassword(16) << "\n";
-	std::cout << "Estimated Entropy 1: " << entropy << " | " << cryptoGen.passwordStrength(pwd) << "\n";
-	auto entropy2 = cryptoGen.estimateEntropy("MMorales_34273");
-	std::cout << "Password 2: " << "MMorales_34273" << "\n";
-	std::cout << "Estimated Entropy 2: " << entropy2 << " | " << cryptoGen.passwordStrength("MMorales_34") << "\n";
-
-	// 9) Top 3 passwords with highest entropy
-	auto topPasswords = cryptoGen.generateTopStrongPasswords();
-	std::cout << "\nTop 3 passwords con mayor entropia:\n";
-	for (const auto& [pwd, ent] : topPasswords) {
-		std::cout << "- " << pwd << " | Entropia: " << ent << "\n";
-	}
-
-	return 0;
+    return 0;
 }

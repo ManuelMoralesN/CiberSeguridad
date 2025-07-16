@@ -1,15 +1,39 @@
 #pragma once
 #include "Prerequisites.h"
-
+/**
+ * @brief Clase que genera contraseñas seguras, claves, vectores de inicialización (IV),
+ *       sal de clave, y proporciona funciones de codificación y decodificación en Base64,
+ *       además de estimar la entropía de una contraseña.
+ */
 class
 	CryptoGenerator {
 public:
+	/**
+	 * @brief Constructor por defecto.
+	 *
+	 * Inicializa el motor Mersenne Twister utilizando un dispositivo de generación de números aleatorios
+	 * con alta entropía para asegurar la aleatoriedad de las contraseñas y claves generadas.
+	 */
 	CryptoGenerator() {
 		std::random_device rd;  // Dispositivo de generación de números aleatorios con alta entropía.
 		m_engine.seed(rd());    // Semilla el motor Mersenne Twister con la entropía del dispositivo.
 	}
 
 	~CryptoGenerator() = default;
+	/**
+	* @brief Genera una contraseña aleatoria.
+	*
+	* La contraseña puede incluir caracteres en mayúsculas, minúsculas, números y símbolos,
+	* según los parámetros indicados. Se asegura de que tenga una longitud adecuada.
+	*
+	* @param length Longitud de la contraseña a generar.
+	* @param useUpper Indica si se deben usar letras mayúsculas (por defecto: true).
+	* @param useLower Indica si se deben usar letras minúsculas (por defecto: true).
+	* @param useDigits Indica si se deben usar dígitos (por defecto: true).
+	* @param useSymbols Indica si se deben usar símbolos (por defecto: false).
+	* @return La contraseña generada como una cadena de caracteres.
+	* @throws std::runtime_error Si no se habilita ningún tipo de carácter.
+	*/
 
 	std::string
 		generatePassword(unsigned int length,

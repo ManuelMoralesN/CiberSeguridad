@@ -13,3 +13,5 @@
 #include <random>
 #include <mutex>
 #include <array>
+#include <fstream> // Para el manejo de archivos
+#include <filesystem>  // Libreria para crear las carpetas

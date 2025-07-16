@@ -137,6 +137,8 @@
   <ItemGroup>
     <ClInclude Include="Include\AsciiBinary.h" />
     <ClInclude Include="Include\CesarEncryption.h" />
+    <ClInclude Include="Include\Cesarin.h" />
+    <ClInclude Include="Include\Cifrador.h" />
     <ClInclude Include="Include\CryptoGenerator.h" />
     <ClInclude Include="Include\DES.h" />
     <ClInclude Include="Include\Prerequisites.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="Include\XOREncoder.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Include\Cesarin.cpp" />
+    <ClCompile Include="Include\Cifrador.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
